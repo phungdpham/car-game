@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Car Game</title>
+</head>
+<body>
+    <h1> Car Adventures!</h1>
+    <h2>Type "h2" to honk "d" to drive to work, "w" to drive around the world, or "t" to get tuneup.</h2>    
+    <h2>See console for cars stats</h2>
+
+    <script>
+        //VARIABLES
+        //======================
+        var car = {
+            //propeties of car object
+            make: "BMW",
+            model: "Sport",
+            color: "Light Blue",
+            mileage: 3000,
+            isWorking: true,
+            //Methods associated with car object
+            driveToWork: function() {
+                alert("Old Mileage: " + this.mileage);
+                this.mileage = this.mileage + 8;
+                alert("New Mileage " + this.mileage);
+            },
+            driveAroundWorld: function() {
+                alert("Old Mileage: " + this.mileage);
+                alert("Car needs a tuneup!");
+                this.isWorking = false;
+            },
+            getTuneUp: function() {
+                alert("Car is ready to go!");
+                this.isWorking = true;
+            },
+            honk: function() {
+                alert("Honk! Honk!");
+            }
+        }
+        //Log all of car's current stats to the console
+        function reWriteStats() {
+            console.log("Make: " + car.make);
+            console.log("Model: " + car.model);
+            console.log("Color: " + car.color);
+            console.log("Mileage: " + car.mileage);
+            console.log("Is Working: " + car.isWorking);
+            console.log("----------------------------");
+        }
+
+        //Main game process
+        document.onekeyup = function(event) {
+            //Cature the key press to play game
+            var letter = event.key.toLowerCase();
+            //Press letter "h" to honk
+            if(letter = "h") {
+                car.honk();
+                reWriteStats();
+            }
+            //Press letter "d" to drive to work
+            if(letter = "d") {
+                car.driveToWork();
+                reWriteStats();
+            }
+            //Press letter "w" to drive around the world
+            if (letter = "w") {
+                car.driveAroundWorld();
+                reWriteStats();
+            }
+            if (letter = "t") {
+                car.getTuneUp();
+                reWriteStats();
+            }
+        };
+        
+    
+    </script>
+
+
+</body>
+</html>
